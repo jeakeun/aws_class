@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>메뉴 연습 예제</title>
+	<style>
+		/* 
+		1. 글자 색 : 검은색, 밑줄 제거
+			- 요소 : a태그
+			- 속성 : color, text-decoration
+		2. 마커 제거
+			- 요소 : ul태그
+			- 속성 : list-style(list-style-type)
+		3. 앞 여백을 제거
+			- 요소 : ul태그
+			- 속성 : padding
+		4. 메뉴들을 한 라인에 배치
+			- 요소 : li태그
+			- 속성 : float
+		5. 메뉴를 3등분
+			- 요소 : li태그
+			- 속성 : width, box-sizing
+		6. 테두리 추가
+			- 요소 : li태그
+			- 속성 : border
+		7. 겹치는 테두리 제거
+			- 요소 : 2번쨰 li태그부터
+			- 속성 : border-left
+		8. 각 메뉴 링크를 각 메뉴 전체칸으로 확장
+			- 요소 : a
+			- 속성 : display, height
+		9. 메뉴 글자를 가운데 정렬
+			- 요소 : a태그
+			- 속성 : text-align, line-height
+		*/
+		.menu-list{
+			height: 40px;
+			/* 가로정렬 */
+			display: flex;
+			/* 리스트 앞 점을 지움 */
+			list-style-type: none;
+			padding: 0;
+		}
+		.menu-link{
+			color: black;
+			/* 메뉴 밑줄 제거 */
+			text-decoration: none;
+			height : 100%;
+			display: block;
+			text-align: center;
+			line-height: 34px;
+		}
+		.menu-item:hover{background: yellow;}
+		.menu-item{
+			border:3px solid black;
+			width: 33.333%;
+			/* text를 가운데 정렬 */
+		}
+		.menu-item:first-child{
+			/* border-right: none; */
+			margin-right: -3px;
+		}
+		.menu-item:last-child{
+			/* border-left: none; */
+			margin-left: -3px;
+		}
+		
+		
+		
+		.menu-link1{
+			color: black;
+			height: 100%;
+			text-decoration: none;
+			/* 링크를 전체로 확장 */
+			display: block;
+			/* 가운데 정렬 */
+			text-align: center;
+			line-height: 34px;
+		}
+		.menu-list1{
+			/* 메뉴 밑줄 제거 */
+			list-style: none;
+			/* 메뉴 앞 여백을 제거 */
+			padding: 0;
+		}
+		.menu-item1{
+			border: 3px solid black;
+			/* 메뉴를 3등분 */
+			float: left;
+			/* box-sizing: border-box; */
+			width:33.333%; box-sizing: border-box;
+			height: 40px;
+		}
+		.menu-item1 + .menu-item1{
+			/* 메뉴 사이에 겹치는 테두리 제거 */
+			border-left: 0;
+		}
+		.menu-item1:nth-of-type(2){
+			/* border-right: none; */
+			/* margin-left: -3px; */
+		}
+		.menu-item1:last-child{
+			/* border-left: none; */
+			/* margin-left: -3px; */
+		}
+
+	</style>
+</head>
+<body>
+	<h1>메뉴 연습 예제</h1>
+	<ul class="menu-list">
+		<li class="menu-item">
+				<a href="#" class="menu-link">메뉴1</a>
+		<li class="menu-item">
+			<a href="#" class="menu-link">메뉴2</a>
+		</li>
+		<li class="menu-item">
+			<a href="#" class="menu-link">메뉴3</a>
+		</li>
+	</ul>
+	<ul class="menu-list1">
+		<li class="menu-item1">
+			<a href="#" class="menu-link1">메뉴1</a>
+		</li>
+		<li class="menu-item1">
+			<a href="#" class="menu-link1">메뉴2</a>
+		</li>
+		<li class="menu-item1">
+			<a href="#" class="menu-link1">메뉴3</a>
+		</li>
+	</ul>
+</body>
+</html>
