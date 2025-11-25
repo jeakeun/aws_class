@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습용</title>
+	<style>
+		*{margin: 0; padding: 0;}
+		ul{list-style: none;}
+		a{ text-decoration: none; color: black;}
+		.container-list{
+			width:1500px;
+			height: 600px;
+			/* border: 3px solid black; */
+			position: relative;
+
+		}
+		.img-box{
+			overflow: hidden;
+		}
+		.left-content{
+			width: 50%;
+			height: 100%;
+			position: relative;
+
+		}
+		.right-content{
+			width: 50%;
+			height: 100%;
+			position: relative;
+			position: absolute;
+			right: 0;
+			top: 0;
+
+		}
+		.container-item1{
+			width: 50%;
+			height: 100%;
+			/* border: 3px solid black; */
+			display: flex;
+			align-content: center;
+			flex-direction: column;
+		}
+			.container-item2{
+			width: 50%;
+			height: 100%;
+			/* border: 3px solid black; */
+			position: absolute;
+			right: 0;
+			top: 0;
+			display: flex;
+			align-content: center;
+			flex-direction: column;
+		}
+			.container-item3{
+			width: 50%;
+			height: 100%;
+			/* border: 3px solid black; */
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+		}
+			.container-item4{
+			width: 50%;
+			height: 100%;
+			/* border: 3px solid black; */
+			position: absolute;
+			right: 0;
+			top: 0;
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+		}
+		.img-box:hover .left-img, .img-box:hover .right-img, .img-box:hover .left2-img, .img-box:hover .right2-img{
+			transform: scale(1.1);
+		}
+		.left-img, .right-img, .left2-img, .right2-img{
+			width: 100%;
+			display: flex;
+			transition: transform 0.3s;
+		}
+		.left-click, .left2-click{
+			/* border: 1px solid red; */
+			width: 100%;
+			display: block;
+			text-align: center;
+		}
+		.right-img{
+			/* border: 1px solid black; */
+			width: 100%;
+			display: flex;
+		}
+		.right-click, .right2-click{
+			/* border: 1px solid red; */
+			width: 100%;
+			display: block;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>4 * 4 분할</h1>
+	<ul class="container-list">
+		<div class="left-content">
+			<li class="container-item1">
+				<span class="img-box">
+					<img class="left-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+				</span>
+				<span class="left-click">
+					<p>안녕하세요</p> 
+					<p>폭죽</p>
+				</span>
+				<span class="img-box">
+					<img class="left-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+				</span>
+				<span class="left-click">
+					<p>안녕하세요</p> 
+					<p>폭죽</p>
+				</span>
+				<span class="img-box">
+					<img class="left-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+				</span>
+				<span class="left-click">
+					<p>안녕하세요</p> 
+					<p>폭죽</p>
+				</span>
+				<span class="img-box">
+					<img class="left-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+				</span>
+				<span class="left-click">
+					<p>안녕하세요</p> 
+					<p>폭죽</p>
+				</span>
+			</li>
+			<li class="container-item2">
+				<span class="img-box">
+					<img class="right-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+				</span>
+				<span class="right-click">
+					<p>안녕하세요</p> 
+					<p>폭죽</p>
+				</span>
+				<span class="img-box">
+					<img class="right-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+				</span>
+				<span class="right-click">
+					<p>안녕하세요</p> 
+					<p>폭죽</p>
+				</span>
+				<span class="img-box">
+					<img class="right-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+				</span>
+				<span class="right-click">
+					<p>안녕하세요</p> 
+					<p>폭죽</p>
+				</span>
+				<span class="img-box">
+					<img class="right-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+				</span>
+				<span class="right-click">
+					<p>안녕하세요</p> 
+					<p>폭죽</p>
+				</span>
+			</li>
+		</div>
+		<div class="right-content">
+			<li class="container-item3">
+		<span class="img-box">
+			<img class="left2-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+		</span>
+		<span class="left2-click">
+			<p>안녕하세요</p> 
+			<p>폭죽</p>
+		</span>
+		<span class="img-box">
+			<img class="left2-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+		</span>
+		<span class="left2-click">
+			<p>안녕하세요</p> 
+			<p>폭죽</p>
+		</span>
+		<span class="img-box">
+			<img class="left2-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+		</span>
+		<span class="left2-click">
+			<p>안녕하세요</p> 
+			<p>폭죽</p>
+		</span>
+		<span class="img-box">
+			<img class="left2-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+		</span>
+		<span class="left2-click">
+			<p>안녕하세요</p> 
+			<p>폭죽</p>
+		</span>
+	</li>
+	<li class="container-item4">
+		<span class="img-box">
+			<img class="right2-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+		</span>
+		<span class="right2-click">
+			<p>안녕하세요</p> 
+			<p>폭죽</p>
+		</span>
+		<span class="img-box">
+			<img class="right2-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+		</span>
+		<span class="right2-click">
+			<p>안녕하세요</p> 
+			<p>폭죽</p>
+		</span>
+		<span class="img-box">
+			<img class="right2-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+		</span>
+		<span class="right2-click">
+			<p>안녕하세요</p> 
+			<p>폭죽</p>
+		</span>
+		<span class="img-box">
+			<img class="right2-img" src="../static/etc/img/bb.jpg" alt="폭죽">
+		</span>
+		<span class="right2-click">
+			<p>안녕하세요</p> 
+			<p>폭죽</p>
+		</span>
+	</li>
+		</div>
+	</ul>
+</body>
+</html>
