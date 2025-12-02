@@ -8,6 +8,49 @@
 		*{margin: 0; padding: 0;}
 		ul{list-style: none;}
 		a{ text-decoration: none; color: black;}
+		header{
+			width : 1920px;
+			height: 200px;
+			border: 1px solid rgb(0, 0, 0);
+			position: relative;
+			background: rgba(0, 0, 0, 0.596);
+		}
+		header .logo{
+			width: 100%;
+			position: absolute;
+		}
+		header .box{
+			position: absolute;
+			text-align: center;
+			height: 100%;
+			line-height: 200px;
+		}
+		header .box1{
+			border: 1px solid black;
+			width: 150px;
+			left: 150px;
+		}
+		header .box2{
+			border: 1px solid black;
+			width: 150px;
+			left: 300px;
+		}
+		header .box3{
+			border: 1px solid black;
+			width: 150px;
+			left: 450px;
+		}
+		header .box4{
+			border: 1px solid black;
+			width: 150px;
+			left: 600px;
+		}
+		header .box5{
+			border: 1px solid black;
+			width: 150px;
+			left: 750px;
+		}
+	
 		.container-list{
 			width:1500px;
 			height: 600px;
@@ -99,6 +142,14 @@
 	</style>
 </head>
 <body>
+	<header>
+		<div class="logo"><a href="#">logo</a></div>
+		<div class="box box1"><a href="#">새소식</a></div>
+		<div class="box box2"><a href="#">공지사항</a></div>
+		<div class="box box3"><a href="#">업데이트</a></div>
+		<div class="box box4"><a href="#">이벤트</a></div>
+		<div class="box box5"><a href="#">문의</a></div>
+	</header>
 	<h1>4 * 4 분할</h1>
 	<ul class="container-list">
 		<div class="left-content">
