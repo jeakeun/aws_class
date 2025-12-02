@@ -17,12 +17,35 @@ public class EX15_HomeWork {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("성적을 입력하세요.");
 		int num = scan.nextInt();
-		char cre = scan.next().charAt(0);
-		System.out.println(num + " " + "점 : " + " " + cre + " " + "학점 입니다");
-		switch(num) {
-		case 90 <= 109 == "A": 
-			System.out.println(num + " " + "점 : " + " " + cre + " " + "학점 입니다");
+		
+		switch(num / 10) {
+		case 10,9: 
+			System.out.println(num + " 점 : " + "A학점 입니다.");
+			break;
+			
+		case 8: 
+			System.out.println(num +  " 점 : " + "B학점 입니다.");
+			break;
+			
+		case 7: 
+			System.out.println(num  + " 점 : " + "C학점 입니다.");
+			break;
+			
+		case 6: 
+			System.out.println(num  + " 점 : " + "D학점 입니다.");
+			break;
+			
+		case 0,1,2,3,4,5: 
+			System.out.println(num + " 점 : " +  "F학점 입니다.");
+			break;
+			
+		default:
+			System.out.println(num + " 점 : " +  "잘못된 성적입니다.");
+			
+			
 		}
 	}
-
 }
+	
+
+
