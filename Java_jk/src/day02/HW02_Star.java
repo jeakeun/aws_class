@@ -13,13 +13,45 @@ public class HW02_Star {
 		 * */
 		
 		
+//		
+//		int row = 5, col = 5;
+//		for(int i = 1; i <= row; i++) {
+//			for(int j = 1; j <= col; j++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
 		
-		int row = 5, col = 5;
-		for(int i = 1; i <= row; i++) {
-			for(int j = 1; j <= col; j++) {
-				System.out.print("*");
+		int num = 0;
+		String str1= "";
+		for(int i = 1; i <= 1; i++) {
+			System.out.print("*");
+		}
+		System.out.println();
+		for(int i = 1; i <= 2; i++) {
+			System.out.print("*");
+		}
+		System.out.println();
+		for(int i = 1; i <= 3; i++) {
+			System.out.print("*");
+		}
+		System.out.println();
+		for(int i = 1; i <= 4; i++) {
+			System.out.print("*");
+		}
+		System.out.println();
+		for(int i = 1; i <= 5; i++) {
+			System.out.print("*");
+		}
+		System.out.println();
+		
+		for(int i = num; i <= 5; i++) {
+			System.out.print("*");
+			if(i == 4) {
+				System.out.println();
+				
 			}
-			System.out.println();
+			
 		}
 		
 		/* *          i = 1 일때 * =1개

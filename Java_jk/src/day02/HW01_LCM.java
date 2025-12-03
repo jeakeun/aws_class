@@ -15,7 +15,7 @@ public class HW01_LCM {
 		
 		int num1 = 6, num2 = 8;
 		
-		for(i = 1; )
+//		for(i = 1; )
 			
 			
 			
