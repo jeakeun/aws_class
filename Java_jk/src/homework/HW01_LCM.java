@@ -1,4 +1,4 @@
-package day02;
+package homework;
 
 public class HW01_LCM {
 

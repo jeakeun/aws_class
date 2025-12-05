@@ -1,3 +1,4 @@
+package homework;
 
 public class HW03_UpDownGame {
 
