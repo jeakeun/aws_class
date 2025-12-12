@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메모패드</title>
+	<script src="index.js"></script>
+
+ <style>
+        body {
+            background-color: #ffffff;
+            padding: 20px;
+						background-color: aqua;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            resize: none;
+            height: 90px;
+        }
+
+        button {
+            width: 80px;
+            border: none;
+            background-color: blue;
+            color: red;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #memoList {
+            margin-top: 10px;
+        }
+
+        .memo-box {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .memo-text {
+            white-space: pre-wrap;
+            font-size: 16px;
+						font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+						font-weight: 500;
+        }
+
+        .del-btn {
+            background: none;
+            border: none;
+            color: red;
+						background-color: rgb(185, 183, 183);
+            cursor: pointer;
+        }
+        .del-btn:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>메모패드 📝</h1>
+
+    <div class="input-area">
+        <textarea id="memoInput" placeholder="메모를 입력하세요..."></textarea>
+        <button id="addBtn">추가</button>
+    </div>
+
+    <div id="memoList"></div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const memoInput = document.getElementById("memoInput");
+    const addBtn = document.getElementById("addBtn");
+    const memoList = document.getElementById("memoList");
+
+    let memos = [];
+
+    try {
+        const stored = localStorage.getItem("memos");
+        if (stored === null) {
+            memos = [
+                "오늘도 열심히 수업 듣자.\n오늘도 화이팅!",
+                "오늘은 자바 과제 해야겠다"
+            ];
+            localStorage.setItem("memos", JSON.stringify(memos));
+        } else {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+                memos = parsed;
+            } else {
+                memos = [
+                    "오늘도 열심히 수업 듣자.\n오늘도 화이팅!",
+                    "오늘은 자바 과제 해야겠다"
+                ];
+                localStorage.setItem("memos", JSON.stringify(memos));
+            }
+        }
+    } catch (e) {
+        memos = [
+            "오늘도 열심히 수업 듣자.\n오늘도 화이팅!",
+            "오늘은 자바 과제 해야겠다"
+        ];
+        localStorage.setItem("memos", JSON.stringify(memos));
+        console.error("localStorage 읽기 오류:", e);
+    }
+
+    showMemos();
+
+    addBtn.addEventListener("click", function () {
+        const text = memoInput.value.trim();
+        if (text === "") {
+            alert("메모를 입력하세요");
+            return;
+        }
+        memos.push(text);
+        localStorage.setItem("memos", JSON.stringify(memos));
+        memoInput.value = "";
+        showMemos();
+    });
+
+    function deleteMemo(index) {
+        memos.splice(index, 1);
+        localStorage.setItem("memos", JSON.stringify(memos));
+        showMemos();
+    }
+
+    function showMemos() {
+        memoList.innerHTML = "";
+        memos.forEach((memo, index) => {
+            const box = document.createElement("div");
+            box.className = "memo-box";
+
+            const memoText = document.createElement("div");
+            memoText.className = "memo-text";
+            memoText.textContent = memo;
+
+            const delBtn = document.createElement("button");
+            delBtn.className = "del-btn";
+            delBtn.textContent = "삭제";
+            delBtn.addEventListener("click", function () {
+                deleteMemo(index);
+            });
+
+            box.appendChild(memoText);
+            box.appendChild(delBtn);
+            memoList.appendChild(box);
+        });
+    }
+});
+</script>
+
+
+</body>
+</html>
