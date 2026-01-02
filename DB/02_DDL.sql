@@ -28,7 +28,7 @@ CREATE TABLE [IF NOT EXISTS] 테이블명(
 	CONSTRAINT CHECK(논리식)
 );
 */
-# 테이블에서 속성 이름은 한글도 가능하지만 가능하면 영오로 하는 게 좋음
+# 테이블에서 속성 이름은 한글도 가능하지만 가능하면 영어로 하는 게 좋음
 # 학생(학생고유번호, 학년, 반, 번호, 이름)
 create table if not exists student(
 	code int primary key auto_increment,
@@ -68,7 +68,7 @@ alter table student add etc varchar(100);
 # 학생 설명 관리하는 컬럼을 100자에서 200자로 수정
 alter table student change etc etc varchar(200);
 
-# 학생 설명 관리하는 컬럼을  삭제
+# 학생 설명 관리하는 컬럼을 삭제
 alter table student drop etc;
 
 # 테이블을 초기화 할 때 사용

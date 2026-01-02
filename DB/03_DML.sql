@@ -95,3 +95,7 @@ value(7, 1, 50), (7, 3, 100);
 # 2학년 1반 1번 학생의 2학년 1학기 성적 - 국어 : 100, 수학 : 50
 insert into score(st_code, sj_code, score)
 value(8, 6, 100), (8, 7, 50);
+
+# 1학년 1반에 새로운 학생이 전학을 왔다. 이때 필요한 쿼리를 작성
+# 이름은 가나다 번호는 3번
+insert into student(grade, class, num, name) values(1,1,3,"가나다");
