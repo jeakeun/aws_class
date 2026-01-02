@@ -15,8 +15,8 @@ public class MemberService {
 	@Autowired
 	MemberDAO memberDAO;
 	
-	@Autowired
-	BCryptPasswordEncoder pwEncoder;
+	//@Autowired
+	BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
 	
 	public boolean signup(MemberDTO member) {
 		//회원 정보가 없으면 가입 실패
