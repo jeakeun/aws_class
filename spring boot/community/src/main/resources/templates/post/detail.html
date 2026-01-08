@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	layout:decorate="~{layout/layout.html}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body >
+	<main layout:fragment="content" class="container">
+		<h1>게시글 상세</h1>
+		<div th:if="${post != null}">
+			<div class="mb-3">
+				<label>제목 : </label>
+				<div th:text="${post.po_title}" class="form-control"></div>
+			</div>
+			<div class="input-group mb-3">
+				<div class="form-control" th:text="'작성자 : ' + ${post.po_me_id}"></div>
+				<div class="form-control" th:text="'조회수 : ' + ${post.po_view}"></div>
+				<div class="form-control" 
+					th:text="'추/비추 : ' + ${post.po_up} + '/' + ${post.po_down}"></div>
+			</div>
+			<div class="mb-3">
+				<label>내용 : </label>
+				<div class="form-control" style="min-height: 400px;"
+					th:text="${post.po_content}"></div>
+			</div>
+			<div class="mb-3" th:if="${!files.isEmpty()}">
+				<label>첨부파일([[${files.size()}]])</label>
+				<a th:each="file : ${files}"
+					th:href="@{|/download/${file.fi_name}|}"
+					th:text="${file.fi_ori_name}"
+					class="form-control mb-3"
+					th:download="${file.fi_ori_name}"
+				></a>
+			</div>
+			<!-- 삭제버튼 추가 : 게시글 작성자만 삭제버튼이 보임 -->
+			<form 
+				th:if="${#authentication.name == post.po_me_id}"
+				th:action="@{/post/delete/{num}(num=${post.po_num})}"
+				method="post">
+				<button class="btn btn-outline-danger">삭제</button>
+				<a th:href="@{/post/update/{num}(num=${post.po_num})}"
+				   class="btn btn-outline-warning">수정</a>
+			</form>
+		</div>
+		<div th:if="${post == null}">
+			<h1>삭제되거나 등록되지 않은 게시글입니다.</h1>
+		</div>
+	</main>
+</body>
+</html>
+
+
+
+
+
+

@@ -18,14 +18,17 @@ public class SecurityConfig {
 	
 	@Autowired
 	MemberDetailService memberDetailService;
-	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 	// 암호화 하는 클래스
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable())
-				// 로그인한 사용자(USER)만 접근할 수 있는 URL 설정
-				.authorizeHttpRequests((requests) -> requests.requestMatchers("/post/insert/*")
-						.hasAuthority(UserRole.USER.name())
+				.authorizeHttpRequests((requests) -> requests
+						// 로그인한 사용자(USER)만 접근할 수 있는 URL 설정
+						.requestMatchers("/post/insert").hasAuthority(UserRole.USER.name())
 						// 로그인한 관리자(ADMIN)만 접근할 수 있는 URL 설정
 						.requestMatchers("/admin/**")
 						.hasAnyAuthority(UserRole.ADMIN.name()).anyRequest().permitAll() // 그 외 요청은 인증 필요
@@ -48,6 +51,8 @@ public class SecurityConfig {
 						.userDetailsService(memberDetailService)
 						// 쿠키에 저장할 토큰을 생성할 때 활용할 문자열
 						// 이 문자열이 바뀌면 이전에 있던 토큰이 무효화 되어 자동 로그인 취소
+						// key에 들어가는 문자열은 노출되면 안됨.
+						// application.properties에 작성해서 관리해야함.
 						.key("abc123")
 						// 쿠키 이름
 						.rememberMeCookieName("LC")
@@ -68,9 +73,6 @@ public class SecurityConfig {
 		return http.build();
 	}
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	
 
 }

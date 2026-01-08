@@ -48,9 +48,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/login")
-	public String login() { 
+	public String login() {
 		return "login";
 	}
-	
-	
 }
