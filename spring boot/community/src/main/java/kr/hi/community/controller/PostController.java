@@ -76,7 +76,8 @@ public class PostController {
 	
 	@GetMapping("/post/detail/{num}")
 	public String postDetail(
-		@PathVariable("num")int po_num, Model model) {
+		@PathVariable("num")int po_num, Model model,
+		@AuthenticationPrincipal CustomUser customUser) {
 		//게시글 번호를 이용해서 조회수 증가
 		postService.updateView(po_num);
 		
@@ -92,6 +93,7 @@ public class PostController {
 		model.addAttribute("post", post);
 		//가져온 첨부파일 목록을 화면에 전달
 		model.addAttribute("files", files);
+		model.addAttribute("user", customUser == null? "" : customUser.getUsername());
 		return "post/detail";
 	}
 	
@@ -214,6 +216,8 @@ public class PostController {
 		//   진행하고 결과를 가져오라고 요청
 		try{
 			String result = postService.updateLike(like, customUser);
+			// 게시글의 추천/비추천 수를 변경
+			postService.updateBoardLike(like.getPostNum());
 			return ResponseEntity.ok(result);
 		}catch(Exception e) {
 			//로그인 안했을 때 
