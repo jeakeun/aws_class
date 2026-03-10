@@ -1,0 +1,4 @@
+url: /post/insert
+컴포넌트명 : PostInsert
+위치 : router1/PostInsert.js
+메뉴 : 게시글 등록

@@ -26,3 +26,5 @@ replay_pid*
 java_jk/.gitignore
 .classpath
 .project
+
+.ipynb_cheeckpoints/

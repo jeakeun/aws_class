@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>반려동물 동반 여행지</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .area-btns button {
+            margin: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px;
+        }
+    </style>
+</head>
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .area-btns button {
+            margin: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+	<h2>🐾 반려동물 동반 여행지</h2>
+	
+	<!-- 지역 선택 버튼 -->
+	<div class="area-btns">
+	    <button onclick="location.href='/pet-tour'">전체</button>
+	    <button onclick="location.href='/pet-tour/area?areaCode=1'">서울</button>
+	    <button onclick="location.href='/pet-tour/area?areaCode=2'">인천</button>
+	    <button onclick="location.href='/pet-tour/area?areaCode=31'">경기</button>
+	    <button onclick="location.href='/pet-tour/area?areaCode=6'">부산</button>
+	    <button onclick="location.href='/pet-tour/area?areaCode=39'">제주</button>
+	</div>
+	
+	<!-- 목록 테이블 -->
+	<table>
+	    <thead>
+	        <tr>
+	            <th>제목</th>
+	            <th>주소</th>
+	            <th>전화번호</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr th:if="${#lists.isEmpty(list)}">
+	            <td colspan="3">데이터가 없습니다.</td>
+	        </tr>
+	
+	        <tr th:each="item : ${list}">
+	            <td th:text="${item.title}">제목</td>
+	            <td th:text="${item.addr1}">주소</td>
+	            <td th:text="${item.tel}">전화번호</td>
+	        </tr>
+	    </tbody>
+	</table>
+
+</body>
+</html>
